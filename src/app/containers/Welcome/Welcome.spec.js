@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Welcome from './Welcome'
-import store from '@/app/composition/store'
+import store from '@/app/composition/makeCreateStore'
 import router from '@/app/router'
 
 describe('Welcome.vue', () => {

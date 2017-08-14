@@ -17,9 +17,9 @@ export default {
     return {}
   },
   computed: {
-    ...mapState({
-      msg: state => state.welcome.msg,
-    }),
+    ...mapState('welcome', [
+      'msg',
+    ]),
   },
 }
 </script>

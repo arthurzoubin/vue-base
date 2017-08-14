@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Github from './Github'
-import store from '@/app/composition/store'
+import store from '@/app/composition/makeCreateStore'
 import router from '@/app/router'
 
 describe('Github.vue', () => {

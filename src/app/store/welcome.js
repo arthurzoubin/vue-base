@@ -3,5 +3,6 @@ const initialStete = {
 }
 
 export default {
+  namespaced: true,
   state: initialStete,
 }
