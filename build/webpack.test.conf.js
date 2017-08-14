@@ -1,19 +1,20 @@
 // This is the webpack config used for unit tests.
 
-var utils = require('./utils')
-var webpack = require('webpack')
-var merge = require('webpack-merge')
-var baseConfig = require('./webpack.base.conf')
+import { styleLoaders } from './utils'
+import webpack from 'webpack'
+import config from '../config'
+import merge from 'webpack-merge'
+import baseConfig from './webpack.base.conf'
 
-var webpackConfig = merge(baseConfig, {
+const webpackConfig = merge(baseConfig, {
   // use inline sourcemap for karma-sourcemap-loader
   module: {
-    rules: utils.styleLoaders()
+    rules: styleLoaders()
   },
   devtool: '#inline-source-map',
   resolveLoader: {
     alias: {
-      // necessary to to make lang="scss" work in test when using vue-loader's ?inject option 
+      // necessary to to make lang="scss" work in test when using vue-loader's ?inject option
       // see discussion at https://github.com/vuejs/vue-loader/issues/724
       'scss-loader': 'sass-loader'
     }
@@ -28,4 +29,4 @@ var webpackConfig = merge(baseConfig, {
 // no need for app entry during tests
 delete webpackConfig.entry
 
-module.exports = webpackConfig
+export default webpackConfig

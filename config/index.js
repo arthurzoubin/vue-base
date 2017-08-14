@@ -1,7 +1,9 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path')
+import path from 'path'
+import { APP } from './paths'
 
-module.exports = {
+export default {
+  entry: `${APP}/main.js`,
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -24,6 +26,7 @@ module.exports = {
   dev: {
     env: require('./dev.env'),
     port: 8090,
+    entry: `${APP}main.js`,
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

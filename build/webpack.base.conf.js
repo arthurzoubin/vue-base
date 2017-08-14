@@ -1,15 +1,15 @@
-var path = require('path')
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
+import path from 'path'
+import { assetsPath } from './utils'
+import config from '../config'
+import vueLoaderConfig from './vue-loader.conf'
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-module.exports = {
+export default {
   entry: {
-    app: './src/main.js'
+    app: config.entry,
   },
   output: {
     path: config.build.assetsRoot,
@@ -44,14 +44,14 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test'), resolve('config')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: assetsPath('img/[name].[hash:7].[ext]')
         }
       },
       {
@@ -59,7 +59,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: assetsPath('media/[name].[hash:7].[ext]')
         }
       },
       {
@@ -67,7 +67,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
     ]

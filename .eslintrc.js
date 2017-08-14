@@ -8,6 +8,7 @@ module.exports = {
   },
   env: {
     browser: true,
+    mocha: true,
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
@@ -21,7 +22,17 @@ module.exports = {
     'arrow-parens': 0,
     // allow async-await
     'generator-star-spacing': 0,
+    // allow comma in laset
+    "comma-dangle": [1, "always-multiline"],
+    //
+    "space-before-function-paren": [1, "never"],
+    //
+    "keyword-spacing": [2, { "overrides": { "if": { "after": false }, "for": { "after": false }, "while": { "after": false } } }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
-  }
+  },
+  globals: {
+    expect: true,
+    sinon: true,
+  },
 }
