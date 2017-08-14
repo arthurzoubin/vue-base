@@ -1,6 +1,28 @@
-# vue-base
+# Vue Base
 
-> Vue base
+> Vue Base is a repository that helps anyone create new JavaScript applications. Giving you a technically sound and well tested starting point for your application.
+
+### Quick Start
+Use the following commands to get started on your new app.
+
+```
+git clone https://github.com/arthurzoubin/vue-base.git <directory-name>
+cd <directory-name>
+npm i
+npm start
+```
+
+Default, this will start your application in development mode on port 8090.
+
+Open a browser window at `127.0.0.1:8090`.
+
+### Technology stack
+
+Vue Base uses the following libraries at its core:
+
+##### Build tools
+- [webpack](https://webpack.github.io/) - A module bundler.
+- [babel](http://babeljs.io/) - A JavaScript compiler.
 
 ## Build Setup
 
