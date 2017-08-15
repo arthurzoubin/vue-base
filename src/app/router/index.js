@@ -3,8 +3,8 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const Welcome = () => import('@/app/containers/Welcome')
-const Github = () => import('@/app/containers/Github')
+export const Welcome = () => import('@/app/containers/Welcome')
+export const Github = () => import('@/app/containers/Github')
 
 const routes = [
   {
@@ -19,7 +19,7 @@ const routes = [
   },
 ]
 
-export default new Router({
+export const router = new Router({
   mode: 'history',
   routes,
 })

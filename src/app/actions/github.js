@@ -14,8 +14,6 @@
  *        return { type: YOUR_ACTION_CONSTANT, var: var }
  *    }
  */
-import Vue from 'vue'
-
 import
 {
   CHANGE_NAME,
@@ -24,20 +22,14 @@ import
   LOAD_REPOS_ERROR,
 } from '@/app/constants/github'
 
+import
+{
+  fetchRepos,
+} from '@/app/service'
+
 import getters from '@/app/getters/github'
 
 const changeName = ({ commit }, name) => commit(CHANGE_NAME, { name })
-
-const fetchRepos = (username) => {
-  const requestUrl = `https://api.github.com/users/${username}/repos?type=all&sort=updated`
-  return Vue.http.get(requestUrl).then(response => {
-    return response.body
-  }, response => {
-    if(response.status === 404) {
-      return []
-    }
-  })
-}
 
 const loadRepos = async ({ commit, state }) => {
   commit(LOAD_REPOS)
@@ -46,6 +38,7 @@ const loadRepos = async ({ commit, state }) => {
     const repos = await fetchRepos(username)
     if(repos.length > 0) {
       commit(LOAD_REPOS_SUCCESS, { repos })
+      return repos
     } else {
       commit(LOAD_REPOS_ERROR, { message: 'The author have no repository.' })
     }
