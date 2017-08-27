@@ -1,9 +1,14 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 import path from 'path'
-import { APP } from './paths'
+import { APP, STYLES } from './paths'
 
 export default {
-  entry: `${APP}/main.js`,
+  entry: {
+    app: [
+      `${STYLES}/main.scss`,
+      `${APP}/main.js`,
+    ]
+  },
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -26,7 +31,6 @@ export default {
   dev: {
     env: require('./dev.env'),
     port: 8090,
-    entry: `${APP}main.js`,
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

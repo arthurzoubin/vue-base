@@ -20,6 +20,7 @@
   </div>
 </template>
 <script>
+import './Github.module'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
@@ -47,8 +48,3 @@ export default {
   },
 }
 </script>
-<style>
-label {
-  margin-right: 10px;
-}
-</style>
